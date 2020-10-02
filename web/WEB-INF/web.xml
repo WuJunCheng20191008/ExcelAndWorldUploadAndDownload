@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!-- 拦截路径后，使用指定的servlet进行页面跳转-->
+    <servlet>
+        <servlet-name>indexServlet</servlet-name>
+        <servlet-class>org.imooc.servlet.IndexServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>indexServlet</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>importExcelInitServlet</servlet-name>
+        <servlet-class>org.imooc.servlet.ImportExcelInitServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>importExcelInitServlet</servlet-name>
+        <url-pattern>/importExcelInit</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>importExcelServlet</servlet-name>
+        <servlet-class>org.imooc.servlet.ImportExcelServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>importExcelServlet</servlet-name>
+        <url-pattern>/importExcel</url-pattern>
+    </servlet-mapping>
+    <!-- 给所有的jsp页面，引入指定jsp-->
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <include-prelude>/WEB-INF/jsp/common.jsp</include-prelude>
+        </jsp-property-group>
+    </jsp-config>
+</web-app>

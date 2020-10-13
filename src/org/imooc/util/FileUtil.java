@@ -19,6 +19,10 @@ public class FileUtil {
      */
     public static String save(FileItem fileItem, String path) throws Exception {
         String fileName = System.currentTimeMillis() + "_" + fileItem.getName();
+        /*
+        * 如果FileItem对象中的主体内容是保存在某个临时文件中，该方法顺利完成后，临时文件有可能会被清除
+        * https://blog.csdn.net/qq_44872773/article/details/106069921
+        * */
         fileItem.write(new File(path + fileName));
         return fileName;
     }
